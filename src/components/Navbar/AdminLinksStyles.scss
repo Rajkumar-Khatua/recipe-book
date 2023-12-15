@@ -1,0 +1,51 @@
+.AdminOperationMenus {
+  position: absolute;
+  top: 60px;
+  right: 10px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  padding: 10px;
+  z-index: 1;
+
+  .adminMenuLinks {
+    list-style: none;
+    padding: 0;
+
+    .adminLink {
+      display: flex;
+      align-items: center;
+      color: #333;
+      text-decoration: none;
+      padding: 8px 10px;
+      transition: background-color 0.3s;
+
+      .settingsIcon,
+      .savedIcon,
+      .logoutIcon,
+      .addRecipeIcon {
+        height: 25px;
+        width: 25px;
+        margin-right: 8px;
+      }
+
+      .settingsIcon {
+        color: #252424;
+      }
+
+      .savedIcon {
+        color: #f80c0c;
+      }
+      .logoutIcon {
+        color: #058fb9;
+      }
+      .addRecipeIcon {
+        color: #f7a816;
+      }
+
+      &:hover {
+        background-color: #f0f0f0;
+      }
+    }
+  }
+}
