@@ -19,7 +19,7 @@ const Footer = () => {
         {/* Other content in the left part */}
       </div>
       <div className="middle">
-        <h4>Useful Links</h4>
+        <h4 className="middle_Title">Useful Links</h4>
         <ul className="footer-links">
           <Link className="footer__link" to="/">
             Home
@@ -44,7 +44,7 @@ const Footer = () => {
       </div>
       <div className="right">
         <div className="newsletter">
-          <h4>Newsletter</h4>
+          <h4 className="newsLetter_Title">Newsletter</h4>
           <input
             type="email"
             className="newLetter__input"

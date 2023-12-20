@@ -1,8 +1,7 @@
-/* @tailwind base;
-@tailwind components;
-@tailwind utilities; */
-body{
+
+body {
+    background: linear-gradient(to right, #ffffff, rgba(255, 0, 102, 0.062), rgba(153, 255, 102, 0.096), #ffc10710);
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-}
+    font-family: 'Arial', sans-serif; 
+  }
