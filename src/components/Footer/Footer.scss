@@ -1,0 +1,151 @@
+// Footer.scss
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 20px;
+  color: #333;
+  border-top: 0.5px solid #ebebeb54;
+
+  @media screen and (max-width: 480px) {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    justify-content: center;
+  }
+  .left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 10px;
+      font-size: 1.5rem;
+
+      .social__icon__FB {
+        color: #3b5998;
+        &:hover {
+          color: #4172da;
+        }
+      }
+      .social__icon__TW {
+        color: #000000;
+        &:hover {
+          color: #0f1518;
+        }
+      }
+      .social__icon__IG {
+        color: #e1306c;
+        &:hover {
+          color: #e1306c;
+        }
+      }
+      .social__icon__LD {
+        color: #0077b5;
+        &:hover {
+          color: #0077b5;
+        }
+      }
+    }
+  }
+
+  .middle {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .footer-links {
+
+      list-style: none;
+      padding: 0;
+      margin-bottom: 10px;
+      font-size: 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 5px;
+
+      .footer__link {
+        margin-bottom: 10px;
+
+        text-decoration: none;
+        color: #333;
+        font-size: 1rem;
+        transition: color 0.3s;
+
+        &:hover {
+          color: #000000;
+        }
+      }
+    }
+  }
+
+  .right {
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+
+    @media screen and (max-width: 480px) {
+      width: 100%;
+    }
+    .newsletter {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      .newLetter__input {
+        padding: 10px 15px;
+        border: 1px solid #4caf50;
+        border-radius: 5px;
+        outline: none;
+        font-size: 1rem;
+        transition: border-color 0.3s, box-shadow 0.3s;
+
+        &:focus {
+          border-color: #1e8449;
+          box-shadow: 0 0 5px rgba(30, 132, 73, 0.5);
+        }
+      }
+
+      .newLetter__btn {
+        padding: 10px;
+        background-color: #4caf50;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 100%;
+        transition: background-color 0.3s;
+        font-size: 1rem;
+
+        &:hover {
+          background-color: #45a049;
+        }
+      }
+    }
+  }
+
+  .bottom {
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+
+    p {
+      margin: 0;
+      font-size: 0.9rem;
+    }
+  }
+}
