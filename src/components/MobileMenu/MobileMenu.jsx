@@ -23,7 +23,7 @@ const MobileMenu = () => {
 
   useEffect(() => {
     // For demonstration purposes, let's assume the user is authenticated by default.
-    setIsAuthenticated(true);
+    setIsAuthenticated(false);
   }, []);
   const toggleAdminOperationMenus = () => {
     setShowAdminOperationMenus(!showAdminOperationMenus);
