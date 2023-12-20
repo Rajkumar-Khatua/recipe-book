@@ -1,4 +1,3 @@
-// MobileMenu.jsx
 import React, { useState } from "react";
 import { RiMenu2Line } from "react-icons/ri";
 import { RxCross1 } from "react-icons/rx";
@@ -28,22 +27,54 @@ const MobileMenu = () => {
     setShowMenuLinks(false); // Close the menu after clicking a link
   };
 
+  const closeAdminMenus = () => {
+    setShowAdminOperationMenus(false);
+  };
+
   return (
     <div className="mobile-menu">
       <div className="menu-icon" onClick={handleMenuIconClick}>
         {showMenuLinks ? <RxCross1 /> : <RiMenu2Line />}
       </div>
       <div className={`menu-links ${showMenuLinks ? "show" : ""}`}>
-        <Link to="/home" className="menu-link" onClick={handleLinkClick}>
+        <Link
+          to="/home"
+          className="menu-link"
+          onClick={() => {
+            handleLinkClick();
+            closeAdminMenus();
+          }}
+        >
           Home <CiHome className="Home__mobile__icon" />
         </Link>
-        <Link to="/recipes" className="menu-link" onClick={handleLinkClick}>
+        <Link
+          to="/recipes"
+          className="menu-link"
+          onClick={() => {
+            handleLinkClick();
+            closeAdminMenus();
+          }}
+        >
           Recipes <GiRiceCooker className="Recipe__mobile__icon" />
         </Link>
-        <Link to="/favorites" className="menu-link" onClick={handleLinkClick}>
+        <Link
+          to="/favorites"
+          className="menu-link"
+          onClick={() => {
+            handleLinkClick();
+            closeAdminMenus();
+          }}
+        >
           Add Recipe <MdOutlineCallMade className="Add__recipe__mobile__icon" />
         </Link>
-        <Link to="/profile" className="menu-link" onClick={handleLinkClick}>
+        <Link
+          to="/profile"
+          className="menu-link"
+          onClick={() => {
+            handleLinkClick();
+            closeAdminMenus();
+          }}
+        >
           New and Popular{" "}
           <MdOutlineWavingHand className="NewRecipe__mobile__icon" />
         </Link>
@@ -62,7 +93,9 @@ const MobileMenu = () => {
           className="profile-img"
         />
       </div>
-      {showAdminOperationMenus && <AdminOperationMenus />}
+      {showAdminOperationMenus && (
+        <AdminOperationMenus onClose={closeAdminMenus} />
+      )}
     </div>
   );
 };

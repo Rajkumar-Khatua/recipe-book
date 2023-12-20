@@ -4,8 +4,7 @@
   align-items: center;
   padding: 0 10px;
   height: 60px;
-  // background-color: #ffffff;
-  // box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+
   .menu-icon {
     font-size: 1.5rem;
     cursor: pointer;
@@ -19,14 +18,18 @@
       color: #000000;
       margin-bottom: 0.5rem;
       font-size: 16px;
-      transition: all 0.3s ease-in-out;
       padding: 5px 30px;
       display: flex;
       align-items: center;
       gap: 10px;
+      transition: color 0.3s ease-in-out;
 
       &:hover {
         color: #f26a2e;
+
+        .menu-icon {
+          transform: scale(1.2);
+        }
       }
     }
 
@@ -41,27 +44,31 @@
       padding: 10px 20px;
       backdrop-filter: blur(16px) saturate(180%);
       -webkit-backdrop-filter: blur(16px) saturate(180%);
-      background-color: rgba(228, 228, 228, 0.493);
+      background-color: rgba(228, 228, 228, 0.185);
 
-      .Home__mobile__icon {
-        color: #f26a2e;
-        height: 25px;
-        width: 25px;
-      }
-      .Recipe__mobile__icon {
-        color: #75746e;
-        height: 25px;
-        width: 25px;
-      }
-      .Add__recipe__mobile__icon {
-        color: #ee8915;
-        height: 25px;
-        width: 25px;
-      }
+      .Home__mobile__icon,
+      .Recipe__mobile__icon,
+      .Add__recipe__mobile__icon,
       .NewRecipe__mobile__icon {
-        color: #ff4d17;
         height: 25px;
         width: 25px;
+        transition: color 0s ease-in-out;
+      }
+
+      .Home__mobile__icon:hover {
+        color: #f26a2e;
+      }
+
+      .Recipe__mobile__icon:hover {
+        color: #75746e;
+      }
+
+      .Add__recipe__mobile__icon:hover {
+        color: #ee8915;
+      }
+
+      .NewRecipe__mobile__icon:hover {
+        color: #ff4d17;
       }
     }
   }
@@ -79,6 +86,11 @@
       width: 35px;
       border-radius: 50%;
       object-fit: cover;
+      transition: transform 0.3s ease-in-out;
+
+      &:hover {
+        transform: scale(1.1);
+      }
     }
   }
 }
