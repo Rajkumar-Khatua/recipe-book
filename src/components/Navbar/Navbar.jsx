@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { FaSearch } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import AdminOperationMenus from "./AdminOperationMenus";
+import { AiOutlineLogin } from "react-icons/ai";
 import { CiSearch } from "react-icons/ci";
 import "./Navbar.scss";
 
@@ -17,7 +18,7 @@ const Navbar = () => {
 
   useEffect(() => {
     // For demonstration purposes, let's assume the user is authenticated by default.
-    setIsAuthenticated(true);
+    setIsAuthenticated(false);
   }, []);
 
   const toggleAdminOperationMenus = () => {
@@ -102,9 +103,7 @@ const Navbar = () => {
           <div className="authButtons">
             <Link to="/signin" className="authButton">
               Sign In
-            </Link>
-            <Link to="/signup" className="authButton">
-              Sign Up
+              <AiOutlineLogin fontSize={20} />
             </Link>
           </div>
         )}

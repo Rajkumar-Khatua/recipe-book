@@ -118,6 +118,7 @@
           border-radius: 12px;
           border: 1px solid rgba(255, 255, 255, 0.125);
           z-index: 1;
+          border: 1px #f26a2e;
         }
       }
     }
@@ -125,9 +126,12 @@
     .authButtons {
       display: flex;
       justify-content: space-between;
-      align-items: center;
 
       .authButton {
+        display: flex;
+        align-self: center;
+        justify-content: center;
+        gap: 10px;
         padding: 10px 15px;
         margin-right: 10px;
         text-decoration: none;

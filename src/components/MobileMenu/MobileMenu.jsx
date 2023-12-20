@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { RiMenu2Line } from "react-icons/ri";
 import { RxCross1 } from "react-icons/rx";
 import { CiHome } from "react-icons/ci";
@@ -9,11 +9,22 @@ import { MdOutlineWavingHand } from "react-icons/md";
 import { Link } from "react-router-dom";
 import "./MobileMenu.scss";
 import AdminOperationMenus from "../Navbar/AdminOperationMenus";
+import { AiOutlineLogin } from "react-icons/ai";
 
 const MobileMenu = () => {
   const [showMenuLinks, setShowMenuLinks] = useState(false);
   const [showAdminOperationMenus, setShowAdminOperationMenus] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [demoUser, setDemoUser] = useState({
+    username: "DemoUser",
+    profileImage:
+      "https://images.pexels.com/photos/16756656/pexels-photo-16756656/free-photo-of-black-and-white-photo-of-a-swan-on-a-lake.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+  });
 
+  useEffect(() => {
+    // For demonstration purposes, let's assume the user is authenticated by default.
+    setIsAuthenticated(true);
+  }, []);
   const toggleAdminOperationMenus = () => {
     setShowAdminOperationMenus(!showAdminOperationMenus);
   };
@@ -32,7 +43,7 @@ const MobileMenu = () => {
   };
 
   return (
-    <div className="mobile-menu">
+    <nav className={`mobile-menu ${isAuthenticated ? "authenticated" : ""}`}>
       <div className="menu-icon" onClick={handleMenuIconClick}>
         {showMenuLinks ? <RxCross1 /> : <RiMenu2Line />}
       </div>
@@ -86,17 +97,26 @@ const MobileMenu = () => {
           className="logo__img"
         />
       </div>
-      <div className="profile-img" onClick={toggleAdminOperationMenus}>
-        <img
-          src="https://images.pexels.com/photos/16756656/pexels-photo-16756656/free-photo-of-black-and-white-photo-of-a-swan-on-a-lake.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
-          alt="Profile"
-          className="profile-img"
-        />
-      </div>
+      {isAuthenticated ? (
+        <div className="profile-img" onClick={toggleAdminOperationMenus}>
+          <img
+            src="https://images.pexels.com/photos/16756656/pexels-photo-16756656/free-photo-of-black-and-white-photo-of-a-swan-on-a-lake.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
+            alt="Profile"
+            className="profile-img"
+          />
+        </div>
+      ) : (
+        <div className="authButtons">
+          <Link to="/signin" className="authButton_mobile">
+            Sign In
+            <AiOutlineLogin fontSize={20} />
+          </Link>
+        </div>
+      )}
       {showAdminOperationMenus && (
         <AdminOperationMenus onClose={closeAdminMenus} />
       )}
-    </div>
+    </nav>
   );
 };
 
