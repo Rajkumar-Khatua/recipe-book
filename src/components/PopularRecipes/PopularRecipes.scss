@@ -1,0 +1,105 @@
+// PopularRecipes.scss
+.popular-recipes {
+  .recipe-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    flex-wrap: wrap;
+
+    @media screen and (max-width: 480px) {
+    }
+
+    .recipe-link {
+      text-decoration: none;
+    }
+
+    .recipe-card {
+      position: relative;
+      width: 300px;
+      height: 300px;
+      margin: 10px 20px;
+      border-radius: 16px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+
+      @media screen and (max-width: 480px) {
+        margin: 10px 0;
+        
+      }
+      .background-layer {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.09);
+        border-radius: 16px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(7.2px);
+        -webkit-backdrop-filter: blur(8.2px);
+        background: rgba(255, 255, 255, 0.09);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(8.2px);
+        border: 1px solid rgba(255, 255, 255, 0.07);
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .content-container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        padding: 20px;
+        color: #fff; // Adjust the text color
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      &:hover {
+        transform: scale(1.1);
+        .background-layer {
+          opacity: 1;
+        }
+        .content-container {
+          opacity: 1;
+        }
+      }
+
+      .recipe-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 16px;
+      }
+
+      .recipe-title {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+      }
+
+      .recipe-description {
+        font-size: 1rem;
+        margin-bottom: 10px;
+      }
+
+      .ratings {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 10px;
+
+        .star {
+          color: #f39c12;
+          margin-right: 2px;
+        }
+      }
+    }
+  }
+}
