@@ -13,6 +13,7 @@ import Home from "./pages/HomePage";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import MobileMenu from "./components/MobileMenu/MobileMenu";
+import RecipeDetailPage from "./pages/RecipeDetailPage";
 
 function App() {
   const queryClient = new QueryClient();
@@ -49,6 +50,10 @@ function App() {
           path: "/",
           element: <Home />,
         },
+        {
+          path:"/recipe/:id",
+          element:<RecipeDetailPage/>
+        }
       ],
     },
   ]);
