@@ -8,6 +8,7 @@
     flex-wrap: wrap;
 
     @media screen and (max-width: 480px) {
+      display: none;
     }
 
     .recipe-link {

@@ -26,9 +26,9 @@ const Home = () => {
           <PopularRecipes />
         </div>
       </div>
-      <div className="recipe-listing-component">
+      {/* <div className="recipe-listing-component">
         <MealListing />
-      </div>
+      </div> */}
     </div>
   );
 };

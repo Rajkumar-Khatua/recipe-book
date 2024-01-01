@@ -1,94 +1,101 @@
-import React, { useState, useEffect } from "react";
+// MealListing.jsx
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { CiFilter } from "react-icons/ci";
+
 import "./MealListing.scss";
 
 const MealListing = () => {
-  const [categories, setCategories] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState("");
-  const [recipes, setRecipes] = useState([]);
-  const [searchTerm, setSearchTerm] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [showFilters, setShowFilters] = useState(false);
+  const [currentCategoryIndex, setCurrentCategoryIndex] = useState(0);
 
-  useEffect(() => {
-    const fetchCategories = async () => {
-      try {
-        loading(true);
-        const response = await fetch(
-          "https://www.themealdb.com/api/json/v1/1/categories.php"
-        );
-        const data = await response.json();
-        setCategories(response);
-        console.log(data.categories);
-      } catch (error) {
-        console.error("Error fetching categories:", error);
-      }
-      setLoading(false);
-    };
+  const recipes = [
+    // Dummy data
+    {
+      id: 1,
+      name: "Pasta Carbonara",
+      category: "Italian",
+      difficulty: "Intermediate",
+    },
+    { id: 2, name: "Chicken Curry", category: "Indian", difficulty: "Easy" },
+    // Add more dummy data as needed
+  ];
 
-    fetchCategories();
-  }, []);
+  const categories = ["All", "Italian", "Indian", "Mexican", "Desserts"];
 
-  useEffect(() => {
-    const fetchRecipes = async () => {
-      try {
-        const endpoint = selectedCategory
-          ? `https://www.themealdb.com/api/json/v1/1/filter.php?c=${selectedCategory}`
-          : "https://www.themealdb.com/api/json/v1/1/search.php?s=";
-        const response = await fetch(endpoint);
-        const data = await response.json();
-        setRecipes(data.meals);
-      } catch (error) {
-        console.error("Error fetching recipes:", error);
-      }
-    };
+  const toggleFilters = () => {
+    setShowFilters(!showFilters);
+  };
 
-    fetchRecipes();
-  }, [selectedCategory]);
-
-  const handleCategoryChange = (category) => {
-    setSelectedCategory(category);
+  const handleCategoryChange = (index) => {
+    setCurrentCategoryIndex(index);
   };
 
   return (
-    <div className="meal-listing">
-      <div className="categories">
-        <label className="category-label">Filter by Category:</label>
-        <select
-          onChange={(e) => handleCategoryChange(e.target.value)}
-          className="category-select"
-        >
-          <option value="" className="category-option">
-            All Categories
-          </option>
-          {categories.map((category) => (
-            <option
-              key={category.strCategory}
-              value={category.strCategory}
-              className="category-option"
-            >
-              {category.strCategory}
-            </option>
-          ))}
-        </select>
+    <div className="recipe-list-container">
+      <div className="filter-menu" onClick={toggleFilters}>
+        <CiFilter className="filter-icon" />
+        <span className="filter-text">Filter</span>
       </div>
-      {recipes.map((recipe) => (
-        <div key={recipe.idMeal} className="meal-card">
-          <img
-            src={`https://www.themealdb.com/images/media/meals/${recipe.strMealThumb}/preview`}
-            alt={recipe.strMeal}
-            className="meal-thumbnail"
-          />
-          <div className="meal-details">
-            <h3 className="meal-title">{recipe.strMeal}</h3>
-            <p className="meal-description">
-              {recipe.strInstructions.slice(0, 80)}...
-            </p>
-            <Link to={`/recipe/${recipe.idMeal}`} className="details-button">
-              Details
-            </Link>
-          </div>
+      {showFilters && (
+        <div className="filters-container">
+          {/* Include filter options here */}
+          {/* ... */}
         </div>
-      ))}
+      )}
+      <div className="category-carousel">
+        {/* Manual category carousel content */}
+        <div className="slider-controls">
+          <button
+            onClick={() =>
+              handleCategoryChange(
+                (currentCategoryIndex - 1 + categories.length) % categories.length
+              )
+            }
+          >
+            Previous
+          </button>
+          <div className="category-item">{categories[currentCategoryIndex]}</div>
+          <button
+            onClick={() =>
+              handleCategoryChange((currentCategoryIndex + 1) % categories.length)
+            }
+          >
+            Next
+          </button>
+        </div>
+        {categories.map((category, index) => (
+          <div
+            key={category}
+            className={`category-item ${
+              index === currentCategoryIndex ? "active" : ""
+            }`}
+            onClick={() => handleCategoryChange(index)}
+          >
+            {/* {category} */}
+          </div>
+        ))}
+      </div>
+      <div className="recipe-cards">
+        {/* Recipe cards */}
+        {recipes
+          .filter(
+            (recipe) =>
+              categories[currentCategoryIndex] === "All" ||
+              recipe.category === categories[currentCategoryIndex]
+          )
+          .map((recipe) => (
+            <div key={recipe.id} className="recipe-card">
+              <img src="" alt="recipe-img" className="recipe-img" />
+              <h3 className="recipe-name">{recipe.name}</h3>
+              <p className="recipe-category">Category: {recipe.category}</p>
+              <p className="recipe-difficulty">Difficulty: {recipe.difficulty}</p>
+              <Link to={`/recipe/${recipe.id}`} className="recipe-link">
+                View Recipe
+              </Link>
+            </div>
+          ))}
+      </div>
     </div>
   );
 };
