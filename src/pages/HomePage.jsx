@@ -20,15 +20,18 @@ const Home = () => {
               />
               <button className="hero-search-button">Search</button>
             </div>
+            <div className="explore-container">
+              <button className="explore-btn">
+                <span className="explore-text">Explore</span>
+              </button>
+            </div>
           </div>
         </div>
-        <div className="recipes-container">
-          <PopularRecipes />
-        </div>
+     
       </div>
-      {/* <div className="recipe-listing-component">
+      <div className="recipe-listing-component">
         <MealListing />
-      </div> */}
+      </div>
     </div>
   );
 };

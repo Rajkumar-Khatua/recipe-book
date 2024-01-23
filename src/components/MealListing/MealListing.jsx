@@ -1,101 +1,38 @@
-// MealListing.jsx
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { CiFilter } from "react-icons/ci";
+import React, { useState } from 'react';
 
-import "./MealListing.scss";
+const dummyMeals = [
+  { id: 1, name: 'Breakfast Burrito', type: 'Breakfast' },
+  { id: 2, name: 'Chicken Alfredo', type: 'Dinner' },
+  { id: 3, name: 'Avocado Toast', type: 'Breakfast' },
+  { id: 4, name: 'Vegetarian Pizza', type: 'Dinner' },
+  { id: 5, name: 'Spinach Salad', type: 'Lunch' },
+  // Add more dummy meals as needed
+];
 
 const MealListing = () => {
-  const [showFilters, setShowFilters] = useState(false);
-  const [currentCategoryIndex, setCurrentCategoryIndex] = useState(0);
+  const [filter, setFilter] = useState('All'); // Default filter is 'All'
 
-  const recipes = [
-    // Dummy data
-    {
-      id: 1,
-      name: "Pasta Carbonara",
-      category: "Italian",
-      difficulty: "Intermediate",
-    },
-    { id: 2, name: "Chicken Curry", category: "Indian", difficulty: "Easy" },
-    // Add more dummy data as needed
-  ];
-
-  const categories = ["All", "Italian", "Indian", "Mexican", "Desserts"];
-
-  const toggleFilters = () => {
-    setShowFilters(!showFilters);
-  };
-
-  const handleCategoryChange = (index) => {
-    setCurrentCategoryIndex(index);
-  };
+  const filteredMeals = filter === 'All' ? dummyMeals : dummyMeals.filter(meal => meal.type === filter);
 
   return (
-    <div className="recipe-list-container">
-      <div className="filter-menu" onClick={toggleFilters}>
-        <CiFilter className="filter-icon" />
-        <span className="filter-text">Filter</span>
+    <div>
+      <h2>Meal List</h2>
+      <div>
+        <label>Filter by Type:</label>
+        <select onChange={(e) => setFilter(e.target.value)}>
+          <option value="All">All</option>
+          <option value="Breakfast">Breakfast</option>
+          <option value="Lunch">Lunch</option>
+          <option value="Dinner">Dinner</option>
+        </select>
       </div>
-      {showFilters && (
-        <div className="filters-container">
-          {/* Include filter options here */}
-          {/* ... */}
-        </div>
-      )}
-      <div className="category-carousel">
-        {/* Manual category carousel content */}
-        <div className="slider-controls">
-          <button
-            onClick={() =>
-              handleCategoryChange(
-                (currentCategoryIndex - 1 + categories.length) % categories.length
-              )
-            }
-          >
-            Previous
-          </button>
-          <div className="category-item">{categories[currentCategoryIndex]}</div>
-          <button
-            onClick={() =>
-              handleCategoryChange((currentCategoryIndex + 1) % categories.length)
-            }
-          >
-            Next
-          </button>
-        </div>
-        {categories.map((category, index) => (
-          <div
-            key={category}
-            className={`category-item ${
-              index === currentCategoryIndex ? "active" : ""
-            }`}
-            onClick={() => handleCategoryChange(index)}
-          >
-            {/* {category} */}
-          </div>
+      <ul>
+        {filteredMeals.map(meal => (
+          <li key={meal.id}>
+            {meal.name} - {meal.type}
+          </li>
         ))}
-      </div>
-      <div className="recipe-cards">
-        {/* Recipe cards */}
-        {recipes
-          .filter(
-            (recipe) =>
-              categories[currentCategoryIndex] === "All" ||
-              recipe.category === categories[currentCategoryIndex]
-          )
-          .map((recipe) => (
-            <div key={recipe.id} className="recipe-card">
-              <img src="" alt="recipe-img" className="recipe-img" />
-              <h3 className="recipe-name">{recipe.name}</h3>
-              <p className="recipe-category">Category: {recipe.category}</p>
-              <p className="recipe-difficulty">Difficulty: {recipe.difficulty}</p>
-              <Link to={`/recipe/${recipe.id}`} className="recipe-link">
-                View Recipe
-              </Link>
-            </div>
-          ))}
-      </div>
+      </ul>
     </div>
   );
 };

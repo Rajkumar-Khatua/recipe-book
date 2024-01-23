@@ -1,4 +1,3 @@
-// App.jsx
 import "./App.css";
 import {
   createBrowserRouter,
@@ -51,9 +50,9 @@ function App() {
           element: <Home />,
         },
         {
-          path:"/recipe/:id",
-          element:<RecipeDetailPage/>
-        }
+          path: "/recipe/:id",
+          element: <RecipeDetailPage />,
+        },
       ],
     },
   ]);

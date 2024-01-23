@@ -18,7 +18,7 @@ const Navbar = () => {
 
   useEffect(() => {
     // For demonstration purposes, let's assume the user is authenticated by default.
-    setIsAuthenticated(false);
+    setIsAuthenticated(true);
   }, []);
 
   const toggleAdminOperationMenus = () => {
@@ -52,11 +52,7 @@ const Navbar = () => {
     <nav className={`navbar ${isAuthenticated ? "authenticated" : ""}`}>
       <div className="leftNavBar">
         <Link to="/">
-          <img
-            src="https://www.freepnglogos.com/uploads/netflix-logo-0.png"
-            alt="Netflix Logo"
-            className="logo"
-          />
+          <img src="/Logo.png" alt="Logo" className="logo" />
         </Link>
       </div>
       <div className="middleNavBar">

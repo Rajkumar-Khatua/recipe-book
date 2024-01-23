@@ -97,12 +97,12 @@
           left: 0;
           width: 0;
           height: 2px;
-          background-color: #f26a2e;
+          background-color: #7ed957;
           transition: width 0.3s ease-in-out;
         }
 
         &:hover {
-          color: #f26a2e;
+          color: #00bf63;
 
           &::before {
             width: 100%;
@@ -135,7 +135,7 @@
       }
       .newLetter__input {
         padding: 10px 15px;
-        border: 1px solid #f26a2e;
+        border: 1px solid #00bf63;
         border-radius: 5px;
         outline: none;
         font-size: 1rem;
@@ -143,14 +143,14 @@
         animation: shine 1s infinite;
 
         &:focus {
-          border-color: #f75a17;
-          box-shadow: 0 0 5px #f26a2e;
+          border-color: #7ed957;
+          box-shadow: 0 0 5px #7ed957;
         }
       }
 
       .newLetter__btn {
         padding: 10px;
-        background-color: #f26a2e;
+        background-color: #00bf63;
         color: #fff;
         border: none;
         border-radius: 5px;
@@ -160,7 +160,7 @@
         font-size: 1rem;
 
         &:hover {
-          background-color: #f7520b;
+          background-color: #7ed957;
           transform: scale(1.05);
           transition: background-color 0.3s, transform 0.3s;
 

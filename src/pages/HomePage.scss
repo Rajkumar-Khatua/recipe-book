@@ -1,144 +1,166 @@
-.home{
-  
+.home {
   .hero-section {
     padding-top: 20px;
     display: flex;
     height: 100vh;
-    background-image: url("https://img.freepik.com/free-photo/top-view-italian-pasta-with-greens-tomato-sauce-meat-inside-pan-dark-grey-space_140725-76299.jpg?w=1380&t=st=1703563963~exp=1703564563~hmac=46b741b2e6458ef447410bb955181f5791782815a15cdcc4220303669186428b");
+    background-image: url("https://images.pexels.com/photos/1051399/pexels-photo-1051399.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
     :-moz-loading {
-      background-image: url("https://img.freepik.com/free-photo/top-view-italian-pasta-with-greens-tomato-sauce-meat-inside-pan-dark-grey-space_140725-76299.jpg?w=1380&t=st=1703563963~exp=1703564563~hmac=46b741b2e6458ef447410bb955181f5791782815a15cdcc4220303669186428b");
+      background-image: url("https://images.pexels.com/photos/1410235/pexels-photo-1410235.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
     }
     background-repeat: no-repeat;
-    
-  background-size: cover;
-  background-position: center;
-  background-color: #000;
-  
-  @media screen and (max-width: 1024px) {
-    height: 100%;
-    min-height: 100vh;
-    background-position: top;
-    flex-direction: column;
-  }
-  @media screen and (max-width: 480px) {
-    height: 100%;
-    min-height: 100vh;
-    background-position: top;
-    flex-direction: column;
-    gap: 20px;
-  }
-}
 
-.hero-content {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
+    background-size: cover;
+    background-position: center;
+    background-color: #000;
 
-.text-content {
-  text-align: center;
-  color: #fff;
-}
-
-.hero-website-name {
-  font-size: 3rem;
-  font-weight: bold;
-  margin-bottom: 20px;
-  
-  @media screen and (max-width: 480px) {
-    font-size: 2rem;
-  }
-}
-
-.hero-description {
-  font-size: 1.5rem;
-  margin-bottom: 30px;
-  @media screen and (max-width: 480px) {
-    font-size: 1rem;
-  }
-}
-
-.hero-search-container {
-  display: flex;
-  max-width: 450px;
-  margin: 0 auto;
-  
-  @media screen and (max-width: 480px) {
-    flex-direction: column;
-    gap: 10px;
-    max-width: 300px;
-  }
-}
-
-.hero-search-input {
-  flex: 1;
-  padding: 15px;
-  border: none;
-  border-radius: 5px 0 0 5px;
-  font-size: 1rem;
-  outline: none;
-  
-  &::placeholder {
-    color: #ccc;
-  }
-  &:focus {
-    outline: 1px solid #e44d26;
-    box-shadow: 0 0 0 1px #e44d26;
-  }
-  @media screen and (max-width: 480px) {
-    border-radius: 15px;
-    padding: 10px;
-    background: rgba(255, 255, 255, 0.09);
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(8.2px);
-    -webkit-backdrop-filter: blur(8.2px);
-    border: 1px solid rgba(255, 255, 255, 0.07);
-    background: rgba(255, 255, 255, 0.09);
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(8.2px);
-    -webkit-backdrop-filter: blur(8.2px);
-    border: 1px solid rgba(255, 255, 255, 0.07);
-
-    &:focus {
-      outline: 1px solid #e44d26;
-      box-shadow: 0 0 0 1px #e44d26;
-      background-color: #fff;
-      transition: all 0.5s ease-in-out;
+    @media screen and (max-width: 1024px) {
+      height: 100%;
+      min-height: 100vh;
+      background-position: top;
+      flex-direction: column;
+    }
+    @media screen and (max-width: 480px) {
+      height: 100%;
+      min-height: 100vh;
+      background-position: top;
+      flex-direction: column;
+      gap: 20px;
     }
   }
-}
 
-.hero-search-button {
-  background-color: #e44d26;
-  color: #fff;
-  border: none;
-  padding: 15px 20px;
-  border-radius: 0 5px 5px 0;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: background-color 0.3s ease;
-  border: none;
-  outline: none;
-  
-  &:hover {
-    background-color: #c03514;
+  .hero-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
   }
-  @media screen and (max-width: 480px) {
-    border-radius: 15px;
-    padding: 10px;
+
+  .text-content {
+    text-align: center;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
   }
-}
 
-.recipes-container {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  flex-wrap: wrap;
-  flex: 1; /* Add flex: 1 to allow flex-end positioning */
-}
+  .hero-website-name {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 15px;
 
+    @media screen and (max-width: 480px) {
+      font-size: 2rem;
+    }
+  }
+
+  .hero-description {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    @media screen and (max-width: 480px) {
+      font-size: 1rem;
+    }
+  }
+
+  .hero-search-container {
+    display: flex;
+    max-width: 450px;
+    margin: 0 auto;
+
+    @media screen and (max-width: 480px) {
+      flex-direction: column;
+      gap: 10px;
+      max-width: 300px;
+    }
+    .hero-search-input {
+      flex: 1;
+      padding: 15px;
+      border: none;
+      border-radius: 30px 0 0 30px;
+      font-size: 1rem;
+      outline: none;
+
+      &::placeholder {
+        color: #ccc;
+      }
+      &:focus {
+        outline: 1px solid #00bf63;
+        box-shadow: 0 0 0 1px #7ed957;
+      }
+      @media screen and (max-width: 480px) {
+        border-radius: 15px;
+        padding: 10px;
+        background: rgba(255, 255, 255, 0.09);
+        border-radius: 16px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(8.2px);
+        -webkit-backdrop-filter: blur(8.2px);
+        border: 1px solid rgba(255, 255, 255, 0.07);
+        background: rgba(255, 255, 255, 0.09);
+        border-radius: 16px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(8.2px);
+        -webkit-backdrop-filter: blur(8.2px);
+        border: 1px solid rgba(255, 255, 255, 0.07);
+
+        &:focus {
+          outline: 1px solid #7ed957;
+          box-shadow: 0 0 0 1px #00bf63;
+          background-color: #fff;
+          transition: all 0.5s ease-in-out;
+        }
+      }
+    }
+
+    .hero-search-button {
+      background-color: #00bf63;
+      color: #fff;
+      border: none;
+      padding: 15px 20px;
+      border-radius: 0 30px 30px 0;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background-color 0.3s ease;
+      border: none;
+      outline: none;
+
+      &:hover {
+        background-color: #7ed957;
+      }
+      @media screen and (max-width: 480px) {
+        border-radius: 15px;
+        padding: 10px;
+      }
+    }
+  }
+
+  .explore-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+
+    .explore-btn {
+      background-color: #00bf63;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      width: 100%;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background-color 0.3s ease;
+      border: none;
+      outline: none;
+      &:hover {
+        background-color: #7ed957;
+      }
+      .explore-text {
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+    }
+  }
 }

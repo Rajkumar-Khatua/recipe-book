@@ -91,11 +91,7 @@ const MobileMenu = () => {
         </Link>
       </div>
       <div className="logo">
-        <img
-          src="https://www.freepnglogos.com/uploads/netflix-logo-0.png"
-          alt="Netflix Logo"
-          className="logo__img"
-        />
+        <img src="/Logo.png" alt="Logo" className="logo__img" />
       </div>
       {isAuthenticated ? (
         <div className="profile-img" onClick={toggleAdminOperationMenus}>
@@ -109,7 +105,6 @@ const MobileMenu = () => {
         <div className="authButtons">
           <Link to="/signin" className="authButton_mobile">
             Sign In
-            <AiOutlineLogin fontSize={20} />
           </Link>
         </div>
       )}
